@@ -131,7 +131,7 @@ export function Transactions() {
             widget={{
               id: 'daily-revenue',
               type: 'metric',
-              title: 'Today\'s Revenue',
+              title: "Today's Revenue",
               position: { x: 0, y: 0, width: 1, height: 1 },
               data: [],
               settings: {},
@@ -146,7 +146,7 @@ export function Transactions() {
             widget={{
               id: 'appointments-today',
               type: 'metric',
-              title: 'Today\'s Appointments',
+              title: "Today's Appointments",
               position: { x: 1, y: 0, width: 1, height: 1 },
               data: [],
               settings: {},
@@ -161,7 +161,7 @@ export function Transactions() {
             widget={{
               id: 'product-sales',
               type: 'metric',
-              title: 'Product Sales Today',
+              title: "Product Sales Today",
               position: { x: 2, y: 0, width: 1, height: 1 },
               data: [],
               settings: {},

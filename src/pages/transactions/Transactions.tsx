@@ -138,7 +138,7 @@ export function Transactions() {
             }}
           >
             <div className="text-2xl font-bold text-gray-900">
-              ${0.toLocaleString()}
+              ${(0).toLocaleString()}
             </div>
           </DashboardWidget>
 
@@ -168,7 +168,7 @@ export function Transactions() {
             }}
           >
             <div className="text-2xl font-bold text-gray-900">
-              ${0.toLocaleString()}
+              ${(0).toLocaleString()}
             </div>
           </DashboardWidget>
         </div>

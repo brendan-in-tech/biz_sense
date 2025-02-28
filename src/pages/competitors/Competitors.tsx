@@ -28,30 +28,6 @@ export function Competitors() {
     { name: 'Others', share: 25 },
   ];
 
-  const competitiveAnalysis = [
-    {
-      metric: 'Price',
-      you: state.benchmarks.averagePrice,
-      competitorA: 105,
-      competitorB: 95,
-      competitorC: 90,
-    },
-    {
-      metric: 'Customer Satisfaction',
-      you: state.benchmarks.customerSatisfaction * 20, // Scale to 100
-      competitorA: 75,
-      competitorB: 82,
-      competitorC: 78,
-    },
-    {
-      metric: 'Growth Rate',
-      you: state.benchmarks.growthRate,
-      competitorA: 10,
-      competitorB: 8,
-      competitorC: 6,
-    },
-  ];
-
   const radarData = [
     { metric: 'Price', value: 80 },
     { metric: 'Quality', value: 90 },

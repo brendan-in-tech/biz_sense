@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useBreakEvenAnalysis } from '../hooks/useBreakEvenAnalysis';
 import { DashboardWidget } from './DashboardWidget';
-import { Tooltip } from './Tooltip';
 import {
   LineChart,
   Line,
@@ -24,7 +23,6 @@ export function BreakEvenCalculator() {
   const {
     analysis,
     calculateBreakEven,
-    calculateProfitAtVolume,
     getSafetyMarginRecommendation,
     getContributionMarginRecommendation,
   } = useBreakEvenAnalysis();

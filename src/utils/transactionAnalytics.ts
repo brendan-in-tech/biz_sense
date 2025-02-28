@@ -1,4 +1,4 @@
-import { format, subMonths, isWithinInterval, startOfMonth, endOfMonth } from 'date-fns';
+import { subMonths, isWithinInterval, startOfMonth, endOfMonth } from 'date-fns';
 
 interface Transaction {
   id: string;

@@ -1,18 +1,14 @@
 import { ReactNode } from 'react';
 import { DashboardWidget as DashboardWidgetType } from '../types/business';
 
-interface DashboardWidgetProps {
+export interface DashboardWidgetProps {
   widget: DashboardWidgetType;
   children: ReactNode;
-  onResize?: (newSize: { width: number; height: number }) => void;
-  onMove?: (newPosition: { x: number; y: number }) => void;
 }
 
 export function DashboardWidget({
   widget,
   children,
-  onResize,
-  onMove,
 }: DashboardWidgetProps) {
   return (
     <div

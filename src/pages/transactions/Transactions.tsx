@@ -19,309 +19,6 @@ interface Transaction {
 }
 
 export function Transactions() {
-  const { state } = useBusinessContext();
-  const [filter, setFilter] = useState({
-    type: 'all',
-    category: 'all',
-    status: 'all',
-    dateRange: '30',
-  });
-
-  // Mock data for a hair stylist
-  const transactions: Transaction[] = [
-    {
-      id: '1',
-      date: '2024-03-15',
-      description: 'Haircut and Color Service',
-      amount: 150,
-      type: 'income',
-      category: 'Services',
-      status: 'completed',
-      client: 'Sarah Johnson',
-      service: 'Cut & Color',
-      eventId: '1'
-    },
-    {
-      id: '2',
-      date: '2024-03-15',
-      description: 'Hair Product Sale - Shampoo',
-      amount: 45,
-      type: 'income',
-      category: 'Product Sales',
-      status: 'completed',
-      client: 'Sarah Johnson',
-      service: 'Retail'
-    },
-    {
-      id: '3',
-      date: '2024-03-14',
-      description: 'Hair Color Supplies Restock',
-      amount: -300,
-      type: 'expense',
-      category: 'Supplies',
-      status: 'completed'
-    },
-    {
-      id: '4',
-      date: '2024-03-14',
-      description: 'Balayage Service',
-      amount: 200,
-      type: 'income',
-      category: 'Services',
-      status: 'completed',
-      client: 'Emily Davis',
-      service: 'Balayage',
-      eventId: '3'
-    },
-    {
-      id: '5',
-      date: '2024-03-13',
-      description: 'Salon Chair Maintenance',
-      amount: -150,
-      type: 'expense',
-      category: 'Equipment',
-      status: 'completed'
-    },
-    {
-      id: '6',
-      date: '2024-03-13',
-      description: 'Styling Tools Purchase',
-      amount: -250,
-      type: 'expense',
-      category: 'Equipment',
-      status: 'completed'
-    },
-    {
-      id: '7',
-      date: '2024-03-12',
-      description: 'Men\'s Haircut',
-      amount: 45,
-      type: 'income',
-      category: 'Services',
-      status: 'completed',
-      client: 'Michael Brown',
-      service: 'Men\'s Cut',
-      eventId: '5'
-    },
-    {
-      id: '8',
-      date: '2024-03-12',
-      description: 'Hair Products Inventory',
-      amount: -500,
-      type: 'expense',
-      category: 'Inventory',
-      status: 'completed'
-    },
-    {
-      id: '9',
-      date: '2024-03-16',
-      description: 'Upcoming Full Service Appointment',
-      amount: 180,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Rachel Green',
-      service: 'Cut, Color & Style',
-      eventId: '7'
-    },
-    {
-      id: '10',
-      date: '2024-03-11',
-      description: 'Marketing - Social Media Ads',
-      amount: -100,
-      type: 'expense',
-      category: 'Marketing',
-      status: 'completed'
-    },
-    {
-      id: '11',
-      date: '2024-03-17',
-      description: 'Deep Conditioning Treatment',
-      amount: 120,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Lisa Wong',
-      service: 'Treatment',
-      eventId: '8'
-    },
-    {
-      id: '12',
-      date: '2024-03-19',
-      description: 'Bridal Trial Appointment',
-      amount: 150,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Jessica Smith',
-      service: 'Bridal',
-      eventId: '10'
-    },
-    {
-      id: '13',
-      date: '2024-03-19',
-      description: 'Color Correction Service',
-      amount: 300,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Amy Chen',
-      service: 'Color Correction',
-      eventId: '11'
-    },
-    {
-      id: '14',
-      date: '2024-03-15',
-      description: 'Hair Products Sale - Styling Products',
-      amount: 85,
-      type: 'income',
-      category: 'Product Sales',
-      status: 'completed',
-      client: 'Emily Davis',
-      service: 'Retail'
-    },
-    {
-      id: '15',
-      date: '2024-03-16',
-      description: 'Salon Insurance Monthly Payment',
-      amount: -200,
-      type: 'expense',
-      category: 'Insurance',
-      status: 'completed'
-    },
-    {
-      id: '16',
-      date: '2024-03-17',
-      description: 'Staff Training Materials',
-      amount: -150,
-      type: 'expense',
-      category: 'Training',
-      status: 'completed'
-    },
-    {
-      id: '17',
-      date: '2024-03-18',
-      description: 'Utilities Payment',
-      amount: -300,
-      type: 'expense',
-      category: 'Utilities',
-      status: 'completed'
-    },
-    {
-      id: '18',
-      date: '2024-03-18',
-      description: 'Hair Products Sale - Treatment Kit',
-      amount: 120,
-      type: 'income',
-      category: 'Product Sales',
-      status: 'completed',
-      client: 'Lisa Wong',
-      service: 'Retail'
-    },
-    {
-      id: '19',
-      date: '2024-03-25',
-      description: 'Balayage and Style',
-      amount: 220,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Jennifer Lee',
-      service: 'Balayage',
-      eventId: '15'
-    },
-    {
-      id: '20',
-      date: '2024-03-26',
-      description: 'Hair Extensions',
-      amount: 400,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Madison Taylor',
-      service: 'Extensions',
-      eventId: '16'
-    },
-    {
-      id: '21',
-      date: '2024-03-27',
-      description: 'Root Touch-up',
-      amount: 95,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Olivia Wilson',
-      service: 'Color',
-      eventId: '17'
-    },
-    {
-      id: '22',
-      date: '2024-04-02',
-      description: 'Full Highlights',
-      amount: 250,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Emma Thompson',
-      service: 'Highlights',
-      eventId: '18'
-    },
-    {
-      id: '23',
-      date: '2024-04-03',
-      description: 'Wedding Hair and Trial',
-      amount: 300,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Sophie Martinez',
-      service: 'Bridal',
-      eventId: '19'
-    },
-    {
-      id: '24',
-      date: '2024-04-04',
-      description: 'Color Correction',
-      amount: 350,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Isabella Kim',
-      service: 'Color Correction',
-      eventId: '20'
-    },
-    {
-      id: '25',
-      date: '2024-04-08',
-      description: 'Monthly Rent',
-      amount: -2000,
-      type: 'expense',
-      category: 'Rent',
-      status: 'pending'
-    },
-    {
-      id: '26',
-      date: '2024-04-09',
-      description: 'Keratin Treatment',
-      amount: 280,
-      type: 'income',
-      category: 'Services',
-      status: 'pending',
-      client: 'Grace Liu',
-      service: 'Treatment',
-      eventId: '21'
-    },
-    {
-      id: '27',
-      date: '2024-04-10',
-      description: 'Hair Product Restock',
-      amount: -800,
-      type: 'expense',
-      category: 'Inventory',
-      status: 'pending'
-    }
-  ];
-
   return (
     <DashboardLayout>
       <div className="space-y-6">
@@ -342,8 +39,6 @@ export function Transactions() {
                 </label>
               </EnhancedTooltip>
               <select
-                value={filter.type}
-                onChange={(e) => setFilter({ ...filter, type: e.target.value })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
               >
                 <option value="all">All</option>
@@ -367,8 +62,6 @@ export function Transactions() {
                 </label>
               </EnhancedTooltip>
               <select
-                value={filter.category}
-                onChange={(e) => setFilter({ ...filter, category: e.target.value })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
               >
                 <option value="all">All</option>
@@ -398,8 +91,6 @@ export function Transactions() {
                 </label>
               </EnhancedTooltip>
               <select
-                value={filter.status}
-                onChange={(e) => setFilter({ ...filter, status: e.target.value })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
               >
                 <option value="all">All</option>
@@ -423,8 +114,6 @@ export function Transactions() {
                 </label>
               </EnhancedTooltip>
               <select
-                value={filter.dateRange}
-                onChange={(e) => setFilter({ ...filter, dateRange: e.target.value })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
               >
                 <option value="7">Last 7 days</option>
@@ -444,17 +133,12 @@ export function Transactions() {
               type: 'metric',
               title: 'Today\'s Revenue',
               position: { x: 0, y: 0, width: 1, height: 1 },
-              data: transactions
-                .filter(t => t.date === format(new Date(), 'yyyy-MM-dd') && t.type === 'income')
-                .reduce((sum, t) => sum + t.amount, 0),
+              data: [],
               settings: {},
             }}
           >
             <div className="text-2xl font-bold text-gray-900">
-              ${transactions
-                .filter(t => t.date === format(new Date(), 'yyyy-MM-dd') && t.type === 'income')
-                .reduce((sum, t) => sum + t.amount, 0)
-                .toLocaleString()}
+              ${0.toLocaleString()}
             </div>
           </DashboardWidget>
 
@@ -464,16 +148,12 @@ export function Transactions() {
               type: 'metric',
               title: 'Today\'s Appointments',
               position: { x: 1, y: 0, width: 1, height: 1 },
-              data: transactions
-                .filter(t => t.date === format(new Date(), 'yyyy-MM-dd') && t.category === 'Services')
-                .length,
+              data: [],
               settings: {},
             }}
           >
             <div className="text-2xl font-bold text-gray-900">
-              {transactions
-                .filter(t => t.date === format(new Date(), 'yyyy-MM-dd') && t.category === 'Services')
-                .length}
+              0
             </div>
           </DashboardWidget>
 
@@ -483,17 +163,12 @@ export function Transactions() {
               type: 'metric',
               title: 'Product Sales Today',
               position: { x: 2, y: 0, width: 1, height: 1 },
-              data: transactions
-                .filter(t => t.date === format(new Date(), 'yyyy-MM-dd') && t.category === 'Product Sales')
-                .reduce((sum, t) => sum + t.amount, 0),
+              data: [],
               settings: {},
             }}
           >
             <div className="text-2xl font-bold text-gray-900">
-              ${transactions
-                .filter(t => t.date === format(new Date(), 'yyyy-MM-dd') && t.category === 'Product Sales')
-                .reduce((sum, t) => sum + t.amount, 0)
-                .toLocaleString()}
+              ${0.toLocaleString()}
             </div>
           </DashboardWidget>
         </div>
@@ -525,36 +200,7 @@ export function Transactions() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {transactions.map((transaction) => (
-                  <tr key={transaction.id}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {transaction.date}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {transaction.description}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {transaction.client || '-'}
-                    </td>
-                    <td className={`px-6 py-4 whitespace-nowrap text-sm font-medium ${
-                      transaction.type === 'income' ? 'text-green-600' : 'text-red-600'
-                    }`}>
-                      {transaction.type === 'income' ? '+' : '-'}${Math.abs(transaction.amount).toLocaleString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {transaction.category}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        transaction.status === 'completed' ? 'bg-green-100 text-green-800' :
-                        transaction.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
-                      }`}>
-                        {transaction.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
+                {[]}
               </tbody>
             </table>
           </div>

@@ -1,16 +1,22 @@
-# React + Tailwind Starter
+# BizSense - Business Analytics Platform
 
-A modern starter template using React, TypeScript, Vite, and Tailwind CSS.
+A modern business analytics and task management platform built with React, TypeScript, and Tailwind CSS. It helps businesses track key metrics, analyze performance, and make data-driven decisions.
 
 ## Features
 
+- 📊 Real-time business metrics and KPI tracking
+- 💰 Financial analytics with break-even analysis
+- 📈 Marketing performance monitoring
+- 👥 Customer relationship management
+- 🏢 Competitor analysis and benchmarking
+- 💳 Transaction tracking and management
+- 📅 Business calendar and scheduling
+- 🎨 Modern, responsive UI with dark mode support
+- 📱 Mobile-friendly dashboard layout
 - ⚡️ Vite for fast development and builds
-- 🎨 Tailwind CSS for utility-first styling
 - 📝 TypeScript for type safety
-- ⚛️ React 18 with modern hooks
+- 🎯 Data visualization with Recharts
 - 🔧 ESLint and TypeScript ESLint for code quality
-- 🎯 Absolute imports
-- 🔥 Hot Module Replacement (HMR)
 
 ## Getting Started
 
@@ -23,8 +29,8 @@ A modern starter template using React, TypeScript, Vite, and Tailwind CSS.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/brendan-in-tech/react-tailwind-starter.git
-cd react-tailwind-starter
+git clone https://github.com/your-username/biz-sense.git
+cd biz-sense
 ```
 
 2. Install dependencies:
@@ -49,9 +55,16 @@ npm run dev
 ## Project Structure
 
 ```
-react-tailwind-starter/
+biz-sense/
 ├── src/
-│   ├── components/     # React components
+│   ├── components/     # Reusable React components
+│   ├── contexts/      # React Context providers
+│   ├── hooks/         # Custom React hooks
+│   ├── layouts/       # Layout components
+│   ├── pages/         # Page components
+│   ├── services/      # API and business services
+│   ├── types/         # TypeScript type definitions
+│   ├── utils/         # Utility functions
 │   ├── App.tsx        # Main App component
 │   ├── main.tsx       # Application entry point
 │   └── index.css      # Global styles and Tailwind imports
@@ -59,6 +72,45 @@ react-tailwind-starter/
 ├── index.html         # HTML entry point
 └── package.json       # Project dependencies and scripts
 ```
+
+## Key Features
+
+### Dashboard
+- Overview of key business metrics
+- Real-time performance indicators
+- Customizable widgets and charts
+
+### Financial Metrics
+- Revenue and profit tracking
+- Cost structure analysis
+- Break-even calculator
+- Financial trend visualization
+
+### Marketing Analytics
+- Campaign ROI tracking
+- Marketing channel performance
+- Customer acquisition metrics
+- Conversion analytics
+
+### Customer Management
+- Customer database
+- Interaction history
+- Customer segmentation
+- Satisfaction metrics
+
+### Competitor Analysis
+- Market share tracking
+- Competitive benchmarking
+- Industry trends
+- SWOT analysis tools
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
